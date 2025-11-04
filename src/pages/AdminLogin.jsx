@@ -303,28 +303,6 @@ const AdminLogin = () => {
             </motion.button>
           </form>
 
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-blue-500/20 border border-blue-500/30 rounded-xl">
-            <h3 className="text-blue-200 font-medium text-sm mb-2">
-              Demo Giriş Bilgileri:
-            </h3>
-            <div className="text-blue-100 text-xs space-y-1">
-              <div>
-                <strong>Kullanıcı Adı:</strong> admin@gozcu.com.tr veya Hüseyin
-                Çetinkoz
-              </div>
-              <div>
-                <strong>Şifre:</strong> gozcu2024
-              </div>
-              <div className="text-blue-200 text-xs mt-2">
-                💡 Veritabanından gerçek kullanıcı verileri kullanılıyor
-              </div>
-              <div className="text-blue-200 text-xs">
-                🔐 Şifreler Supabase'de saklanıyor
-              </div>
-            </div>
-          </div>
-
           {/* Footer */}
           <div className="mt-8 text-center">
             <a
