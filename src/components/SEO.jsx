@@ -14,7 +14,8 @@ const SEO = ({
   section = null,
   tags = [],
   canonical = null,
-  siteData = null
+  siteData = null,
+  breadcrumbs = null
 }) => {
   // Optimize title for brand search
   let fullTitle = title;
@@ -144,6 +145,85 @@ const SEO = ({
       ]
     }
   };
+
+  // LocalBusiness structured data for local SEO
+  const localBusinessData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Gözcü Yazılım Teknoloji",
+    "alternateName": siteName,
+    "image": image,
+    "url": url,
+    "telephone": contactPhone.replace(/\s/g, "-"),
+    "email": contactEmail,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": contactAddress.includes("İstanbul") ? "İstanbul" : contactAddress,
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR",
+      "streetAddress": contactAddress
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "41.0082",
+      "longitude": "28.9784"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "priceRange": "$$",
+    "serviceArea": {
+      "@type": "Country",
+      "name": "Turkey"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Yazılım Hizmetleri",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Tasarım ve Programlama"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "ERP Yazılım Geliştirme"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Bulut Sunucu Hizmetleri"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Özel Yazılım Geliştirme"
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      githubUrl,
+      linkedinUrl
+    ]
+  };
   
   // JSON-LD structured data for articles
   let structuredData = organizationData;
@@ -259,10 +339,33 @@ const SEO = ({
         </script>
       )}
 
+      {/* Structured Data - LocalBusiness */}
+      {type === "website" && (
+        <script type="application/ld+json">
+          {JSON.stringify(localBusinessData)}
+        </script>
+      )}
+
       {/* Structured Data - Article */}
       {type === "article" && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+      )}
+
+      {/* Structured Data - BreadcrumbList */}
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: breadcrumbs.map((item, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: item.name,
+              item: item.url
+            }))
+          })}
         </script>
       )}
 

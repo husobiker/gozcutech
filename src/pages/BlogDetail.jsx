@@ -217,6 +217,13 @@ const BlogDetail = () => {
     );
   }
 
+  // Breadcrumb data for SEO
+  const breadcrumbs = [
+    { name: "Ana Sayfa", url: "https://gozcu.tech/" },
+    { name: "Blog", url: "https://gozcu.tech/blog" },
+    { name: blogPost.title || "Blog Yazısı", url: `https://gozcu.tech/blog/${blogPost.id}` }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <SEO
@@ -230,6 +237,7 @@ const BlogDetail = () => {
         section={blogPost.category || "Genel"}
         tags={blogPost.tags || []}
         image={blogPost.featured_image || ""}
+        breadcrumbs={breadcrumbs}
       />
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -272,6 +280,27 @@ const BlogDetail = () => {
       {/* Article */}
       <article className="py-12">
         <div className="mx-auto max-w-4xl px-6">
+          {/* Breadcrumb Navigation */}
+          <nav className="mb-6" aria-label="Breadcrumb">
+            <ol className="flex items-center gap-2 text-sm text-slate-500">
+              <li>
+                <Link to="/" className="hover:text-slate-900 transition-colors">
+                  Ana Sayfa
+                </Link>
+              </li>
+              <li className="text-slate-400">/</li>
+              <li>
+                <Link to="/blog" className="hover:text-slate-900 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li className="text-slate-400">/</li>
+              <li className="text-slate-900 font-medium truncate max-w-xs">
+                {blogPost.title}
+              </li>
+            </ol>
+          </nav>
+
           {/* Article Header */}
           <motion.header
             initial={{ opacity: 0, y: 30 }}
@@ -352,8 +381,12 @@ const BlogDetail = () => {
               <div className="aspect-video overflow-hidden rounded-2xl mb-8">
                 <img
                   src={blogPost.featured_image}
-                  alt={blogPost.title}
+                  alt={`${blogPost.title} - Gözcü Yazılım Teknoloji Blog Yazısı`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={1200}
+                  height={630}
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}

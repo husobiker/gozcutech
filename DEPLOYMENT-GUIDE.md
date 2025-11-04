@@ -1,6 +1,7 @@
 # Gozcu.tech Production Deployment Rehberi 🚀
 
 ## Sunucu Durumu
+
 - **Sunucu Path:** `/var/www/gozcutech`
 - **Domain:** `gozcu.tech`
 - **Web Server:** Nginx (muhtemelen)
@@ -8,12 +9,14 @@
 ## 📋 Deployment Adımları
 
 ### 1. Repository'yi Güncelle
+
 ```bash
 cd /var/www/gozcutech
 git pull origin main
 ```
 
 ### 2. Dependencies Yükle
+
 ```bash
 npm install
 # veya
@@ -21,6 +24,7 @@ npm ci  # Clean install için
 ```
 
 ### 3. Production Build Oluştur
+
 ```bash
 npm run build
 ```
@@ -62,7 +66,7 @@ server {
     # SSL Sertifikaları
     ssl_certificate /etc/letsencrypt/live/gozcu.tech/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/gozcu.tech/privkey.pem;
-    
+
     # SSL Optimizasyonları
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers HIGH:!aNULL:!MD5;
@@ -195,6 +199,7 @@ echo "Deployment completed!"
 ```
 
 İzin ver:
+
 ```bash
 chmod +x deploy.sh
 ```
@@ -202,11 +207,13 @@ chmod +x deploy.sh
 ## ✅ Test
 
 1. **HTTP Test:**
+
    ```bash
    curl -I http://gozcu.tech
    ```
 
 2. **HTTPS Test:**
+
    ```bash
    curl -I https://gozcu.tech
    ```
@@ -218,6 +225,7 @@ chmod +x deploy.sh
 ## 🔍 Troubleshooting
 
 ### Nginx Hataları
+
 ```bash
 # Nginx status
 sudo systemctl status nginx
@@ -227,6 +235,7 @@ sudo tail -f /var/log/nginx/gozcu.tech.error.log
 ```
 
 ### Build Hataları
+
 ```bash
 # Node version kontrol
 node -v
@@ -238,6 +247,7 @@ npm install
 ```
 
 ### İzin Hataları
+
 ```bash
 sudo chown -R www-data:www-data /var/www/gozcutech
 sudo chmod -R 755 /var/www/gozcutech
@@ -249,4 +259,3 @@ sudo chmod -R 755 /var/www/gozcutech
 - **SSL Expiry:** `sudo certbot certificates`
 - **Disk Space:** `df -h`
 - **Memory:** `free -h`
-
