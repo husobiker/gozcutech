@@ -1,0 +1,180 @@
+{
+  "header": {
+    "nav": {
+      "home": "Ana Sayfa",
+      "about": "Hakkımızda",
+      "solutions": "Çözümler",
+      "plans": "Planlar",
+      "references": "Referanslar",
+      "blog": "Blog",
+      "contact": "İletişim"
+    },
+    "cta": "Teklif Al"
+  },
+  "hero": {
+    "badge": "Web Tasarım · VIP Bulut · ERP · Özel Yazılım",
+    "title": "Hayalinizdeki yazılımları",
+    "titleHighlight": "gerçeğe",
+    "titleEnd": "dönüştürüyoruz.",
+    "description": "Gözcü Yazılım Teknoloji AR-GE Limited olarak; web tasarım/programlama, VIP bulut sunucu kiralama, ERP yazılımları ve müşterilerinize özel yazılım geliştirme hizmetleri sunuyoruz.",
+    "primaryButton": "Proje Teklifi Al",
+    "secondaryButton": "Hakkımızda"
+  },
+  "stats": {
+    "projects": "Tamamlanan Proje",
+    "clients": "Mutlu Müşteri",
+    "experience": "Yıl Deneyim",
+    "team": "Uzman Ekip",
+    "support": "Destek",
+    "satisfaction": "Müşteri Memnuniyeti"
+  },
+  "about": {
+    "title": "Gözcü Yazılım Teknoloji Ar-Ge Ltd. Şti.",
+    "description": "Web tasarım/programlama, VIP bulut sunucu kiralama, ERP yazılımları ve özel yazılım geliştirme alanlarında uzman ekibimizle müşterilerinizin hayalindeki yazılımları gerçeğe dönüştürüyoruz. Teknoloji AR-GE odağımızla sürekli yenilikçi çözümler üretiyoruz.",
+    "web": {
+      "title": "Web Tasarım & Programlama",
+      "desc": "Modern, responsive web siteleri ve kurumsal web uygulamaları geliştiriyoruz."
+    },
+    "cloud": {
+      "title": "VIP Bulut Sunucu",
+      "desc": "Windows ve Ubuntu sunucu kiralama hizmetleri ile yüksek performans sağlıyoruz."
+    },
+    "erp": {
+      "title": "ERP Yazılımları",
+      "desc": "İşletmenize özel ERP sistemleri ile operasyonel verimliliği artırıyoruz."
+    },
+    "custom": {
+      "title": "Özel Yazılım Geliştirme",
+      "desc": "Hayalinizdeki yazılımları gerçeğe dönüştürüyoruz."
+    }
+  },
+  "solutions": {
+    "title": "Hizmetlerimiz",
+    "description": "Web tasarım/programlama, VIP bulut sunucu kiralama, ERP yazılımları ve özel yazılım geliştirme alanlarında profesyonel çözümler sunuyoruz.",
+    "web": {
+      "title": "Web Tasarım & Programlama",
+      "description": "Modern, responsive web siteleri ve kurumsal web uygulamaları geliştiriyoruz.",
+      "items": {
+        "responsive": "Responsive Tasarım",
+        "seo": "SEO Optimizasyonu",
+        "modern": "Modern Teknolojiler"
+      }
+    },
+    "cloud": {
+      "title": "VIP Bulut Sunucu",
+      "description": "Windows ve Ubuntu sunucu kiralama hizmetleri ile yüksek performans sağlıyoruz.",
+      "items": {
+        "windows": "Windows Server",
+        "ubuntu": "Ubuntu 22.04/24.04",
+        "support": "7/24 Teknik Destek"
+      }
+    },
+    "erp": {
+      "title": "ERP Yazılımları",
+      "description": "İşletmenize özel ERP sistemleri ile operasyonel verimliliği artırıyoruz.",
+      "items": {
+        "modules": "Özel Modüller",
+        "reporting": "Raporlama Sistemi",
+        "integration": "Entegrasyon"
+      }
+    },
+    "custom": {
+      "title": "Özel Yazılım Geliştirme",
+      "description": "Hayalinizdeki yazılımları gerçeğe dönüştürüyoruz.",
+      "items": {
+        "customer": "Müşteri Odaklı",
+        "scalable": "Ölçeklenebilir",
+        "secure": "Güvenli Çözümler"
+      }
+    }
+  },
+  "plans": {
+    "title": "Planlarımız",
+    "description": "İhtiyacınıza uygun planı seçin",
+    "cards": {
+      "web": {
+        "title": "Web Tasarım",
+        "subtitle": "Modern & Responsive"
+      },
+      "cloud": {
+        "title": "VIP Bulut",
+        "subtitle": "Windows/Ubuntu"
+      },
+      "erp": {
+        "title": "ERP Sistem",
+        "subtitle": "Özel Çözümler"
+      }
+    },
+    "categories": {
+      "cloud": "Bulut",
+      "web": "Web",
+      "software": "Yazılım"
+    },
+    "serverTypes": {
+      "linux": "Linux",
+      "windows": "Windows"
+    },
+    "features": {
+      "basic": "Temel Özellikler",
+      "advanced": "Gelişmiş Özellikler",
+      "premium": "Premium Özellikler"
+    },
+    "cta": "Planı Seç"
+  },
+  "references": {
+    "title": "Referanslarımız",
+    "description": "Başarıyla tamamladığımız projelerimiz",
+    "viewDetails": "Detayları Gör",
+    "modal": {
+      "company": "Şirket",
+      "project": "Proje",
+      "technologies": "Teknolojiler",
+      "duration": "Süre",
+      "teamSize": "Ekip Büyüklüğü",
+      "challenges": "Zorluklar",
+      "results": "Sonuçlar"
+    }
+  },
+  "blog": {
+    "title": "Son Blog Yazıları",
+    "description": "Teknoloji dünyasından güncel haberler, ipuçları ve uzman görüşleri",
+    "viewAll": "Tüm Blog Yazıları"
+  },
+  "contact": {
+    "title": "Hayalinizdeki Yazılımı Konuşalım",
+    "description": "Web tasarım, VIP bulut sunucu, ERP yazılımı veya özel yazılım projenizi anlatın, 24 saat içinde dönüş yapalım.",
+    "form": {
+      "name": "Adınız Soyadınız",
+      "email": "E-posta",
+      "projectType": "Proje Türü (Web/ERP/Bulut/Özel)",
+      "message": "Hayalinizdeki yazılımı anlatın...",
+      "submit": "Gönder"
+    }
+  },
+  "footer": {
+    "nav": {
+      "home": "Ana Sayfa",
+      "about": "Hakkımızda",
+      "solutions": "Çözümler",
+      "plans": "Planlar",
+      "references": "Referanslar",
+      "blog": "Blog",
+      "contact": "İletişim"
+    },
+    "copyright": "© 2024 Gözcu Yazılım. Tüm hakları saklıdır."
+  },
+  "footer": {
+    "nav": {
+      "about": "Hakkımızda",
+      "solutions": "Çözümler",
+      "plans": "Planlar",
+      "blog": "Blog",
+      "contact": "İletişim"
+    },
+    "copyright": "© 2024 Gözcu Yazılım. Tüm hakları saklıdır."
+  },
+  "language": {
+    "tr": "Türkçe",
+    "en": "English"
+  }
+}

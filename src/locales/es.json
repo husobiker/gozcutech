@@ -1,0 +1,187 @@
+{
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Acerca de",
+      "solutions": "Soluciones",
+      "plans": "Planes",
+      "references": "Referencias",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "cta": "Solicitar cotización"
+  },
+  "hero": {
+    "badge": "Diseño Web · Cloud VIP · ERP · Software Personalizado",
+    "title": "Convertimos tu software soñado",
+    "titleHighlight": "en realidad",
+    "titleEnd": ".",
+    "description": "Como Gözcu Software Technology R&D Limited, proporcionamos servicios de diseño/programación web, alquiler de servidores cloud VIP, software ERP y desarrollo de software personalizado para sus clientes.",
+    "primaryButton": "Solicitar cotización de proyecto",
+    "secondaryButton": "Acerca de nosotros"
+  },
+  "stats": {
+    "projects": "Proyectos completados",
+    "clients": "Clientes satisfechos",
+    "experience": "Años de experiencia",
+    "team": "Equipo de expertos",
+    "support": "Soporte",
+    "satisfaction": "Satisfacción del cliente"
+  },
+  "about": {
+    "title": "Gözcü Yazılım Teknoloji Ar-Ge Ltd. Şti.",
+    "description": "Como Gözcu Software, ofrecemos a nuestros clientes las soluciones de software de más alta calidad combinando tecnología e innovación. Junto con nuestro equipo experimentado, lo acompañamos en su viaje de transformación digital."
+  },
+  "solutions": {
+    "title": "Nuestras soluciones",
+    "description": "Soluciones que desarrollamos usando tecnologías modernas",
+    "web": {
+      "title": "Aplicaciones web",
+      "description": "Desarrollamos aplicaciones web modernas y responsivas.",
+      "items": {
+        "responsive": "Diseño responsive",
+        "seo": "Optimización SEO",
+        "modern": "Tecnologías modernas"
+      }
+    },
+    "mobile": {
+      "title": "Aplicaciones móviles",
+      "description": "Aplicaciones nativas y multiplataforma para iOS y Android."
+    },
+    "cloud": {
+      "title": "Soluciones en la nube",
+      "description": "Configuración de infraestructura en la nube en AWS, Azure y Google Cloud.",
+      "items": {
+        "windows": "Windows Server",
+        "ubuntu": "Ubuntu 22.04/24.04",
+        "support": "Soporte técnico 24/7"
+      }
+    },
+    "erp": {
+      "title": "Sistemas ERP",
+      "description": "Sistemas ERP y CRM personalizados para las necesidades de su negocio.",
+      "items": {
+        "modules": "Módulos personalizados",
+        "reporting": "Sistema de informes",
+        "integration": "Integración"
+      }
+    },
+    "custom": {
+      "title": "Desarrollo de software personalizado",
+      "description": "Convertimos tu software soñado en realidad.",
+      "items": {
+        "customer": "Enfoque en el cliente",
+        "scalable": "Escalable",
+        "secure": "Soluciones seguras"
+      }
+    }
+  },
+  "plans": {
+    "title": "Nuestros planes",
+    "description": "Elija el plan que se adapte a sus necesidades",
+    "cards": {
+      "web": {
+        "title": "Diseño Web",
+        "subtitle": "Moderno & Responsive"
+      },
+      "cloud": {
+        "title": "Cloud VIP",
+        "subtitle": "Windows/Ubuntu"
+      },
+      "erp": {
+        "title": "Sistema ERP",
+        "subtitle": "Soluciones Personalizadas"
+      }
+    },
+    "categories": {
+      "cloud": "Nube",
+      "web": "Web",
+      "software": "Software"
+    },
+    "serverTypes": {
+      "linux": "Linux",
+      "windows": "Windows"
+    },
+    "features": {
+      "basic": "Características básicas",
+      "advanced": "Características avanzadas",
+      "premium": "Características premium"
+    },
+    "cta": "Elegir plan"
+  },
+  "references": {
+    "title": "Nuestras referencias",
+    "description": "Proyectos que hemos completado exitosamente",
+    "viewDetails": "Ver detalles",
+    "modal": {
+      "company": "Empresa",
+      "project": "Proyecto",
+      "technologies": "Tecnologías",
+      "duration": "Duración",
+      "teamSize": "Tamaño del equipo",
+      "challenges": "Desafíos",
+      "results": "Resultados"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Últimas noticias del mundo tecnológico",
+    "readMore": "Leer más",
+    "allPosts": "Todas las publicaciones del blog",
+    "viewAll": "Ver todas las publicaciones del blog",
+    "author": "Autor",
+    "date": "Fecha",
+    "category": "Categoría"
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Contáctenos para sus proyectos",
+    "info": {
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "workingHours": "Horario de trabajo"
+    },
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "projectType": "Tipo de proyecto (Web/ERP/Cloud/Personalizado)",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje"
+    },
+    "social": {
+      "follow": "Síguenos"
+    }
+  },
+  "footer": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Acerca de",
+      "solutions": "Soluciones",
+      "plans": "Planes",
+      "references": "Referencias",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "copyright": "© 2024 Gözcu Software. Todos los derechos reservados."
+  },
+  "footer": {
+    "nav": {
+      "about": "Nosotros",
+      "solutions": "Soluciones",
+      "plans": "Planes",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "copyright": "© 2024 Gözcu Software. Todos los derechos reservados."
+  },
+  "language": {
+    "tr": "Türkçe",
+    "en": "English",
+    "de": "Deutsch",
+    "fr": "Français",
+    "es": "Español",
+    "it": "Italiano"
+  }
+}

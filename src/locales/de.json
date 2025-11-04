@@ -1,0 +1,203 @@
+{
+  "header": {
+    "nav": {
+      "home": "Startseite",
+      "about": "Über uns",
+      "solutions": "Lösungen",
+      "plans": "Pläne",
+      "references": "Referenzen",
+      "blog": "Blog",
+      "contact": "Kontakt"
+    },
+    "cta": "Angebot anfordern"
+  },
+  "hero": {
+    "badge": "Web Design · VIP Cloud · ERP · Custom Software",
+    "title": "Wir verwandeln Ihre Traumsoftware",
+    "titleHighlight": "in die Realität",
+    "titleEnd": ".",
+    "description": "Als Gözcu Software Technology R&D Limited bieten wir Webdesign/Programmierung, VIP-Cloud-Server-Vermietung, ERP-Software und maßgeschneiderte Softwareentwicklungsdienstleistungen für Ihre Kunden.",
+    "primaryButton": "Projektangebot anfordern",
+    "secondaryButton": "Über uns"
+  },
+  "stats": {
+    "projects": "Abgeschlossene Projekte",
+    "clients": "Zufriedene Kunden",
+    "experience": "Jahre Erfahrung",
+    "team": "Experten-Team",
+    "support": "Support",
+    "satisfaction": "Kundenzufriedenheit"
+  },
+  "about": {
+    "title": "Gözcü Yazılım Teknoloji Ar-Ge Ltd. Şti.",
+    "description": "Als Gözcu Software Technology R&D Limited bieten wir Webdesign/Programmierung, VIP-Cloud-Server-Vermietung, ERP-Software und maßgeschneiderte Softwareentwicklungsdienstleistungen. Mit unserem Expertenteam verwandeln wir Ihre Traumsoftware in die Realität. Wir produzieren kontinuierlich innovative Lösungen mit unserem Technologie-F&E-Fokus.",
+    "web": {
+      "title": "Web Design & Programmierung",
+      "desc": "Wir entwickeln moderne, responsive Websites und Unternehmens-Webanwendungen."
+    },
+    "cloud": {
+      "title": "VIP Cloud Server",
+      "desc": "Wir bieten hohe Leistung mit Windows- und Ubuntu-Server-Vermietungsdienstleistungen."
+    },
+    "erp": {
+      "title": "ERP Software",
+      "desc": "Wir steigern die operative Effizienz mit maßgeschneiderten ERP-Systemen für Ihr Unternehmen."
+    },
+    "custom": {
+      "title": "Maßgeschneiderte Softwareentwicklung",
+      "desc": "Wir verwandeln Ihre Traumsoftware in die Realität."
+    }
+  },
+  "solutions": {
+    "title": "Unsere Dienstleistungen",
+    "description": "Wir bieten professionelle Lösungen in Webdesign/Programmierung, VIP-Cloud-Server-Vermietung, ERP-Software und maßgeschneiderter Softwareentwicklung.",
+    "web": {
+      "title": "Web-Anwendungen",
+      "description": "Wir entwickeln moderne und responsive Web-Anwendungen.",
+      "items": {
+        "responsive": "Responsives Design",
+        "seo": "SEO-Optimierung",
+        "modern": "Moderne Technologien"
+      }
+    },
+    "mobile": {
+      "title": "Mobile Anwendungen",
+      "description": "Native und plattformübergreifende Anwendungen für iOS und Android."
+    },
+    "cloud": {
+      "title": "Cloud-Lösungen",
+      "description": "Cloud-Infrastruktur-Setup auf AWS, Azure und Google Cloud Plattformen.",
+      "items": {
+        "windows": "Windows Server",
+        "ubuntu": "Ubuntu 22.04/24.04",
+        "support": "24/7 Technischer Support"
+      }
+    },
+    "erp": {
+      "title": "ERP-Systeme",
+      "description": "Maßgeschneiderte ERP- und CRM-Systeme für Ihre Geschäftsbedürfnisse.",
+      "items": {
+        "modules": "Individuelle Module",
+        "reporting": "Berichtssystem",
+        "integration": "Integration"
+      }
+    },
+    "custom": {
+      "title": "Maßgeschneiderte Softwareentwicklung",
+      "description": "Wir verwandeln Ihre Traumsoftware in die Realität.",
+      "items": {
+        "customer": "Kundenorientiert",
+        "scalable": "Skalierbar",
+        "secure": "Sichere Lösungen"
+      }
+    }
+  },
+  "plans": {
+    "title": "Unsere Pläne",
+    "description": "Wählen Sie den Plan, der zu Ihren Bedürfnissen passt",
+    "cards": {
+      "web": {
+        "title": "Web Design",
+        "subtitle": "Modern & Responsive"
+      },
+      "cloud": {
+        "title": "VIP Cloud",
+        "subtitle": "Windows/Ubuntu"
+      },
+      "erp": {
+        "title": "ERP System",
+        "subtitle": "Maßgeschneiderte Lösungen"
+      }
+    },
+    "categories": {
+      "cloud": "Cloud",
+      "web": "Web",
+      "software": "Software"
+    },
+    "serverTypes": {
+      "linux": "Linux",
+      "windows": "Windows"
+    },
+    "features": {
+      "basic": "Grundfunktionen",
+      "advanced": "Erweiterte Funktionen",
+      "premium": "Premium-Funktionen"
+    },
+    "cta": "Plan wählen"
+  },
+  "references": {
+    "title": "Unsere Referenzen",
+    "description": "Projekte, die wir erfolgreich abgeschlossen haben",
+    "viewDetails": "Details anzeigen",
+    "modal": {
+      "company": "Unternehmen",
+      "project": "Projekt",
+      "technologies": "Technologien",
+      "duration": "Dauer",
+      "teamSize": "Teamgröße",
+      "challenges": "Herausforderungen",
+      "results": "Ergebnisse"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Neueste Nachrichten aus der Technologiewelt",
+    "readMore": "Weiterlesen",
+    "allPosts": "Alle Blog-Beiträge",
+    "viewAll": "Alle Blog-Beiträge anzeigen",
+    "author": "Autor",
+    "date": "Datum",
+    "category": "Kategorie"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie uns für Ihre Projekte",
+    "info": {
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "workingHours": "Arbeitszeiten"
+    },
+    "form": {
+      "name": "Vor- und Nachname",
+      "email": "E-Mail",
+      "projectType": "Projekttyp (Web/ERP/Cloud/Benutzerdefiniert)",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "submit": "Nachricht senden"
+    },
+    "social": {
+      "follow": "Folgen Sie uns"
+    }
+  },
+  "footer": {
+    "nav": {
+      "home": "Startseite",
+      "about": "Über uns",
+      "solutions": "Lösungen",
+      "plans": "Pläne",
+      "references": "Referenzen",
+      "blog": "Blog",
+      "contact": "Kontakt"
+    },
+    "copyright": "© 2024 Gözcu Software. Alle Rechte vorbehalten."
+  },
+  "footer": {
+    "nav": {
+      "about": "Über uns",
+      "solutions": "Lösungen",
+      "plans": "Pläne",
+      "blog": "Blog",
+      "contact": "Kontakt"
+    },
+    "copyright": "© 2024 Gözcu Software. Alle Rechte vorbehalten."
+  },
+  "language": {
+    "tr": "Türkçe",
+    "en": "English",
+    "de": "Deutsch",
+    "fr": "Français",
+    "es": "Español",
+    "it": "Italiano"
+  }
+}

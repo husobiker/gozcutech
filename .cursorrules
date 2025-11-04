@@ -1,0 +1,80 @@
+# Gözcu Yazılım CMS Projesi - Cursor Rules
+
+## Proje Genel Bilgileri
+
+- **Proje Adı:** Gözcu Yazılım Kurumsal Website
+- **Teknoloji:** React + Vite + Node.js + Express + SQLite
+- **Veritabanı:** Supabase (PostgreSQL)
+- **Frontend:** React 18 + Vite + Tailwind CSS + Framer Motion
+- **Backend:** Node.js + Express + SQLite (development) / Supabase (production)
+
+## Önemli Notlar
+
+- **VERİTABANI:** Bu proje Supabase kullanıyor, SQLite değil!
+- **API ÇAĞRILARI:** Tüm API çağrıları `src/utils/supabase-api.js` üzerinden yapılmalı
+- **AUTHENTICATION:** Supabase Auth kullanılıyor
+- **FILE UPLOAD:** Supabase Storage kullanılıyor
+
+## Dosya Yapısı
+
+```
+src/
+├── components/          # React bileşenleri
+├── pages/              # Sayfa bileşenleri
+├── utils/              # Yardımcı fonksiyonlar
+│   └── supabase-api.js # Supabase API çağrıları
+├── locales/            # Çoklu dil dosyaları
+└── lib/
+    └── supabase.js     # Supabase konfigürasyonu
+```
+
+## API Kullanımı
+
+- **Blog:** `blogAPI.getAll()`, `blogAPI.create()`, `blogAPI.update()`
+- **Projeler:** `projectsAPI.getAll()`, `projectsAPI.create()`
+- **Planlar:** `plansAPI.getAll()`, `plansAPI.create()`
+- **Kullanıcılar:** `usersAPI.getAll()`, `usersAPI.create()`
+- **Ayarlar:** `settingsAPI.get()`, `settingsAPI.update()`
+
+## Özellikler
+
+- ✅ Admin paneli (Blog, Proje, Plan, Kullanıcı yönetimi)
+- ✅ Çoklu dil desteği (TR, EN, DE, FR, ES, IT)
+- ✅ Responsive tasarım
+- ✅ Dark mode
+- ✅ SEO optimizasyonu
+- ✅ PWA desteği
+- ✅ Dosya yükleme (Supabase Storage)
+- ✅ Gerçek zamanlı veri senkronizasyonu
+
+## Geliştirme Kuralları
+
+1. **Supabase API'sini kullan** - SQLite değil!
+2. **Türkçe dil desteği** - Tüm metinler Türkçe olmalı
+3. **Responsive tasarım** - Mobil uyumlu olmalı
+4. **Error handling** - Hata yönetimi yapılmalı
+5. **Loading states** - Yükleme durumları gösterilmeli
+6. **TypeScript** - Mümkünse TypeScript kullan
+
+## Önemli Bileşenler
+
+- `GozcuCorporateSiteLight.jsx` - Ana sayfa
+- `AdminDashboard.jsx` - Admin paneli
+- `BlogManagement.jsx` - Blog yönetimi
+- `ProjectManagement.jsx` - Proje yönetimi
+- `PlansManagement.jsx` - Plan yönetimi
+- `UserManagement.jsx` - Kullanıcı yönetimi
+
+## Veritabanı Tabloları (Supabase)
+
+- `blogs` - Blog yazıları
+- `projects` - Projeler
+- `plans` - Planlar
+- `users` - Kullanıcılar
+- `settings` - Site ayarları
+- `contacts` - İletişim mesajları
+- `newsletters` - Newsletter aboneleri
+
+## Not
+
+Bu proje Supabase kullanıyor! SQLite değil! Tüm API çağrıları Supabase üzerinden yapılmalı.

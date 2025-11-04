@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Gözcü Yazılım Teknoloji | gozcu.tech | Web Tasarım, ERP, Bulut Sunucu
+    </title>
+    <meta
+      name="title"
+      content="Gözcü Yazılım Teknoloji | gozcu.tech | Web Tasarım, ERP, Bulut Sunucu"
+    />
+    <meta
+      name="description"
+      content="Gözcü Yazılım Teknoloji - Modern, güvenilir ve ölçeklenebilir yazılım çözümleri. Web tasarım/programlama, VIP bulut sunucu kiralama, ERP yazılımları ve özel yazılım geliştirme hizmetleri. 7/24 teknik destek. gozcu.tech"
+    />
+    <meta
+      name="keywords"
+      content="Gözcü Yazılım Teknoloji, gözcü yazılım teknoloji, gozcu.tech, web tasarım, web programlama, ERP yazılımı, bulut sunucu, VIP sunucu, özel yazılım, teknoloji AR-GE, İstanbul"
+    />
+    <meta name="author" content="Gözcu Yazılım Teknoloji AR-GE Ltd. Şti." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://gozcu.tech" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gozcu.tech" />
+    <meta
+      property="og:title"
+      content="Gözcü Yazılım Teknoloji | gozcu.tech"
+    />
+    <meta
+      property="og:description"
+      content="Gözcü Yazılım Teknoloji - Modern, güvenilir ve ölçeklenebilir yazılım çözümleri. Web tasarım, ERP, bulut sunucu ve özel yazılım geliştirme hizmetleri."
+    />
+    <meta property="og:image" content="https://gozcu.tech/logo.png" />
+    <meta property="og:site_name" content="Gözcu Yazılım" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://gozcu.tech" />
+    <meta
+      property="twitter:title"
+      content="Gözcü Yazılım Teknoloji | gozcu.tech"
+    />
+    <meta
+      property="twitter:description"
+      content="Modern, güvenilir ve ölçeklenebilir yazılım çözümleri. Web tasarım, ERP, bulut sunucu ve özel yazılım geliştirme hizmetleri."
+    />
+    <meta property="twitter:image" content="https://gozcu.tech/logo.png" />
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="msapplication-TileColor" content="#0f172a" />
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Gözcu Yazılım" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/logo.png" />
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#0f172a" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Gözcü Yazılım Teknoloji",
+        "alternateName": "Gözcü Yazılım Teknoloji AR-GE Ltd. Şti.",
+        "legalName": "Gözcu Yazılım Teknoloji AR-GE Limited Şirketi",
+        "url": "https://gozcu.tech",
+        "logo": "https://gozcu.tech/logo.png",
+        "description": "Modern, güvenilir ve ölçeklenebilir yazılım çözümleri. Web tasarım/programlama, VIP bulut sunucu kiralama, ERP yazılımları ve özel yazılım geliştirme hizmetleri.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "İstanbul",
+          "addressCountry": "TR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+90-555-111-22-33",
+          "contactType": "customer service",
+          "email": "info@gozcu.com.tr"
+        },
+        "sameAs": [
+          "https://github.com/gozcu",
+          "https://linkedin.com/company/gozcu"
+        ],
+        "foundingDate": "2019",
+        "numberOfEmployees": "10-50",
+        "serviceArea": {
+          "@type": "Country",
+          "name": "Turkey"
+        }
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID");
+    </script>
+
+    <!-- PWA Install Prompt -->
+    <script>
+      // PWA Install functionality
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        // Show install button after a delay
+        setTimeout(() => {
+          const installButton = document.getElementById('pwa-install-button');
+          if (installButton && !localStorage.getItem('pwa-install-dismissed')) {
+            installButton.style.display = 'block';
+          }
+        }, 3000);
+      });
+
+      // Track PWA events
+      window.addEventListener('appinstalled', () => {
+        console.log('PWA was installed');
+        if (window.gtag) {
+          window.gtag('event', 'pwa_install', {
+            event_category: 'PWA',
+            event_label: 'App Installed'
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

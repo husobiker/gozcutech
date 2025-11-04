@@ -1,0 +1,199 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "solutions": "Solutions",
+      "plans": "Plans",
+      "references": "References",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "cta": "Get Quote"
+  },
+  "hero": {
+    "badge": "Web Design · VIP Cloud · ERP · Custom Software",
+    "title": "We turn your dream software",
+    "titleHighlight": "into reality",
+    "titleEnd": ".",
+    "description": "As Gözcu Software Technology R&D Limited, we provide web design/programming, VIP cloud server rental, ERP software and custom software development services for your customers.",
+    "primaryButton": "Get Project Quote",
+    "secondaryButton": "About Us"
+  },
+  "stats": {
+    "projects": "Completed Projects",
+    "clients": "Happy Clients",
+    "experience": "Years of Experience",
+    "team": "Expert Team",
+    "support": "Support",
+    "satisfaction": "Customer Satisfaction"
+  },
+  "about": {
+    "title": "Gözcü Yazılım Teknoloji Ar-Ge Ltd. Şti.",
+    "description": "As Gözcu Software Technology R&D Limited, we provide web design/programming, VIP cloud server rental, ERP software and custom software development services. With our expert team, we turn your dream software into reality. We continuously produce innovative solutions with our technology R&D focus.",
+    "web": {
+      "title": "Web Design & Programming",
+      "desc": "We develop modern, responsive websites and corporate web applications."
+    },
+    "cloud": {
+      "title": "VIP Cloud Server",
+      "desc": "We provide high performance with Windows and Ubuntu server rental services."
+    },
+    "erp": {
+      "title": "ERP Software",
+      "desc": "We increase operational efficiency with custom ERP systems for your business."
+    },
+    "custom": {
+      "title": "Custom Software Development",
+      "desc": "We turn your dream software into reality."
+    }
+  },
+  "solutions": {
+    "title": "Our Services",
+    "description": "We provide professional solutions in web design/programming, VIP cloud server rental, ERP software and custom software development.",
+    "web": {
+      "title": "Web Applications",
+      "description": "We develop modern and responsive web applications.",
+      "items": {
+        "responsive": "Responsive Design",
+        "seo": "SEO Optimization",
+        "modern": "Modern Technologies"
+      }
+    },
+    "mobile": {
+      "title": "Mobile Applications",
+      "description": "Native and cross-platform applications for iOS and Android platforms."
+    },
+    "cloud": {
+      "title": "Cloud Solutions",
+      "description": "Cloud infrastructure setup on AWS, Azure and Google Cloud platforms.",
+      "items": {
+        "windows": "Windows Server",
+        "ubuntu": "Ubuntu 22.04/24.04",
+        "support": "24/7 Technical Support"
+      }
+    },
+    "erp": {
+      "title": "ERP Systems",
+      "description": "Custom ERP and CRM systems for your business needs.",
+      "items": {
+        "modules": "Custom Modules",
+        "reporting": "Reporting System",
+        "integration": "Integration"
+      }
+    },
+    "custom": {
+      "title": "Custom Software Development",
+      "description": "We turn your dream software into reality.",
+      "items": {
+        "customer": "Customer-Centric",
+        "scalable": "Scalable",
+        "secure": "Secure Solutions"
+      }
+    }
+  },
+  "plans": {
+    "title": "Our Plans",
+    "description": "Choose the plan that suits your needs",
+    "cards": {
+      "web": {
+        "title": "Web Design",
+        "subtitle": "Modern & Responsive"
+      },
+      "cloud": {
+        "title": "VIP Cloud",
+        "subtitle": "Windows/Ubuntu"
+      },
+      "erp": {
+        "title": "ERP System",
+        "subtitle": "Custom Solutions"
+      }
+    },
+    "categories": {
+      "cloud": "Cloud",
+      "web": "Web",
+      "software": "Software"
+    },
+    "serverTypes": {
+      "linux": "Linux",
+      "windows": "Windows"
+    },
+    "features": {
+      "basic": "Basic Features",
+      "advanced": "Advanced Features",
+      "premium": "Premium Features"
+    },
+    "cta": "Choose Plan"
+  },
+  "references": {
+    "title": "Our References",
+    "description": "Projects we have successfully completed",
+    "viewDetails": "View Details",
+    "modal": {
+      "company": "Company",
+      "project": "Project",
+      "technologies": "Technologies",
+      "duration": "Duration",
+      "teamSize": "Team Size",
+      "challenges": "Challenges",
+      "results": "Results"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Latest news from the technology world",
+    "readMore": "Read More",
+    "allPosts": "All Blog Posts",
+    "viewAll": "View All Blog Posts",
+    "author": "Author",
+    "date": "Date",
+    "category": "Category"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Contact us for your projects",
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "workingHours": "Working Hours"
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "projectType": "Project Type (Web/ERP/Cloud/Custom)",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "social": {
+      "follow": "Follow Us"
+    }
+  },
+  "footer": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "solutions": "Solutions",
+      "plans": "Plans",
+      "references": "References",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "copyright": "© 2024 Gözcu Software. All rights reserved."
+  },
+  "footer": {
+    "nav": {
+      "about": "About Us",
+      "solutions": "Solutions",
+      "plans": "Plans",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "copyright": "© 2024 Gözcu Software. All rights reserved."
+  },
+  "language": {
+    "tr": "Türkçe",
+    "en": "English"
+  }
+}

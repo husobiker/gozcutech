@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gozcu.tech/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (for future CMS)
+Disallow: /admin/
+Disallow: /cms/
+Disallow: /api/
+
+# Allow important pages
+Allow: /
+Allow: /blog
+Allow: /#about
+Allow: /#solutions
+Allow: /#plans
+Allow: /#references
+Allow: /#contact
