@@ -2,17 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft, RefreshCw } from "lucide-react";
 import { Link } from "react-router-dom";
-import SEO from "../components/SEO.jsx";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white flex items-center justify-center px-6">
-      <SEO
-        title="Sayfa Bulunamadı - 404"
-        description="Aradığınız sayfa mevcut değil. Ana sayfaya dönerek istediğiniz içeriği bulabilirsiniz."
-        url="https://gozcu.tech/404"
-        type="website"
-      />
+      <Helmet>
+        <title>Sayfa Bulunamadı - 404 | Gözcü Yazılım Teknoloji</title>
+        <meta name="description" content="Aradığınız sayfa mevcut değil. Ana sayfaya dönerek istediğiniz içeriği bulabilirsiniz." />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://gozcu.tech/404" />
+      </Helmet>
       <div className="max-w-2xl mx-auto text-center">
         {/* 404 Animation */}
         <motion.div
@@ -131,6 +131,9 @@ const NotFound = () => {
             src="/logo.png"
             alt="Gözcu Yazılım Logo"
             className="h-12 w-auto mx-auto opacity-60"
+            width="216"
+            height="84"
+            loading="lazy"
           />
         </motion.div>
       </div>

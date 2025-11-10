@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 const SEO = ({
   title = "Gözcü Yazılım Teknoloji | gozcu.tech",
@@ -15,216 +16,311 @@ const SEO = ({
   tags = [],
   canonical = null,
   siteData = null,
-  breadcrumbs = null
+  breadcrumbs = null,
 }) => {
+  const location = useLocation();
+
   // Optimize title for brand search
   let fullTitle = title;
-  if (!title.includes("Gözcü Yazılım Teknoloji") && !title.includes("gozcu.tech")) {
+  if (
+    !title.includes("Gözcü Yazılım Teknoloji") &&
+    !title.includes("gozcu.tech")
+  ) {
     fullTitle = `${title} | Gözcü Yazılım Teknoloji | gozcu.tech`;
   }
-  const canonicalUrl = canonical || url;
-  
+
+  // Canonical URL'yi query parametrelerinden temizle
+  const getCleanCanonicalUrl = () => {
+    // Önce canonical prop'unu kontrol et
+    if (canonical) {
+      try {
+        const urlObj = new URL(canonical);
+        urlObj.search = ""; // Query parametrelerini temizle
+        return urlObj.toString();
+      } catch {
+        return canonical;
+      }
+    }
+
+    // Eğer canonical verilmemişse, url prop'unu veya mevcut sayfa URL'sini kullan
+    let targetUrl = url;
+
+    // Eğer url prop'u sadece pathname ise, base URL ile birleştir
+    if (targetUrl && !targetUrl.startsWith("http")) {
+      try {
+        const baseUrl = "https://gozcu.tech";
+        const urlObj = new URL(targetUrl, baseUrl);
+        urlObj.search = ""; // Query parametrelerini temizle
+        return urlObj.toString();
+      } catch {
+        // Fallback: mevcut sayfa pathname'ini kullan
+        try {
+          const baseUrl = "https://gozcu.tech";
+          const urlObj = new URL(location.pathname, baseUrl);
+          urlObj.search = ""; // Query parametrelerini temizle
+          return urlObj.toString();
+        } catch {
+          return "https://gozcu.tech";
+        }
+      }
+    }
+
+    // Eğer url prop'u tam URL ise, query parametrelerini temizle
+    if (targetUrl && targetUrl.startsWith("http")) {
+      try {
+        const urlObj = new URL(targetUrl);
+        urlObj.search = ""; // Query parametrelerini temizle
+        return urlObj.toString();
+      } catch {
+        return targetUrl;
+      }
+    }
+
+    // Fallback: mevcut sayfa pathname'ini kullan
+    try {
+      const baseUrl = "https://gozcu.tech";
+      const urlObj = new URL(location.pathname, baseUrl);
+      urlObj.search = ""; // Query parametrelerini temizle
+      return urlObj.toString();
+    } catch {
+      return "https://gozcu.tech";
+    }
+  };
+
+  const canonicalUrl = getCleanCanonicalUrl();
+
+  // Base URL'yi canonical'dan al (query parametreleri olmadan)
+  const getBaseUrl = () => {
+    try {
+      const urlObj = new URL(canonicalUrl);
+      return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname}`;
+    } catch {
+      return url || "https://gozcu.tech";
+    }
+  };
+
+  const baseUrl = getBaseUrl();
+
+  // Tüm diller için hreflang URL'leri oluştur
+  const languages = [
+    { code: "tr", name: "Türkçe" },
+    { code: "en", name: "English" },
+    { code: "de", name: "Deutsch" },
+    { code: "fr", name: "Français" },
+    { code: "es", name: "Español" },
+    { code: "it", name: "Italiano" },
+  ];
+
+  // Hreflang URL'lerini oluştur (query parametreleri olmadan)
+  const getHreflangUrls = () => {
+    return languages.map((lang) => {
+      if (lang.code === "tr") {
+        // Türkçe için query parametresi yok (canonical URL)
+        return { code: lang.code, url: baseUrl };
+      } else {
+        // Diğer diller için lang query parametresi ekle
+        return { code: lang.code, url: `${baseUrl}?lang=${lang.code}` };
+      }
+    });
+  };
+
+  const hreflangUrls = getHreflangUrls();
+
   // Get contact info from siteData or use defaults
   const contactEmail = siteData?.email || "info@gozcu.tech";
   const contactPhone = siteData?.phone || "+90-555-111-22-33";
   const contactAddress = siteData?.address || "İstanbul, Türkiye";
   const githubUrl = siteData?.github || "https://github.com/gozcu";
-  const linkedinUrl = siteData?.linkedin || "https://linkedin.com/company/gozcu";
-  const siteName = siteData?.siteName || "Gözcu Yazılım Teknoloji AR-GE Ltd. Şti.";
-  
+  const linkedinUrl =
+    siteData?.linkedin || "https://linkedin.com/company/gozcu";
+  const siteName =
+    siteData?.siteName || "Gözcu Yazılım Teknoloji AR-GE Ltd. Şti.";
+
   // Organization structured data
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Gözcü Yazılım Teknoloji",
-    "alternateName": siteName,
-    "legalName": "Gözcu Yazılım Teknoloji AR-GE Limited Şirketi",
-    "url": url,
-    "logo": {
+    name: "Gözcü Yazılım Teknoloji",
+    alternateName: siteName,
+    legalName: "Gözcu Yazılım Teknoloji AR-GE Limited Şirketi",
+    url: url,
+    logo: {
       "@type": "ImageObject",
-      "url": image,
-      "width": 512,
-      "height": 512
+      url: image,
+      width: 512,
+      height: 512,
     },
-    "description": description,
-    "address": {
+    description: description,
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": contactAddress.includes("İstanbul") ? "İstanbul" : contactAddress,
-      "addressCountry": "TR",
-      "addressRegion": contactAddress
+      addressLocality: contactAddress.includes("İstanbul")
+        ? "İstanbul"
+        : contactAddress,
+      addressCountry: "TR",
+      addressRegion: contactAddress,
     },
-    "contactPoint": {
+    contactPoint: {
       "@type": "ContactPoint",
-      "telephone": contactPhone.replace(/\s/g, "-"),
-      "contactType": "customer service",
-      "email": contactEmail,
-      "availableLanguage": ["Turkish", "English"]
+      telephone: contactPhone.replace(/\s/g, "-"),
+      contactType: "customer service",
+      email: contactEmail,
+      availableLanguage: ["Turkish", "English"],
     },
-    "sameAs": [
-      githubUrl,
-      linkedinUrl
-    ],
-    "foundingDate": "2019",
-    "numberOfEmployees": "10-50",
-    "serviceArea": {
+    sameAs: [githubUrl, linkedinUrl],
+    foundingDate: "2019",
+    numberOfEmployees: "10-50",
+    serviceArea: {
       "@type": "Country",
-      "name": "Turkey"
-    }
+      name: "Turkey",
+    },
   };
 
   // WebSite structured data
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": siteName,
-    "url": "https://gozcu.tech",
-    "description": description,
-    "publisher": {
+    name: siteName,
+    url: "https://gozcu.tech",
+    description: description,
+    publisher: {
       "@type": "Organization",
-      "name": siteName,
-      "logo": {
+      name: siteName,
+      logo: {
         "@type": "ImageObject",
-        "url": image
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://gozcu.tech/blog?search={search_term_string}"
+        url: image,
       },
-      "query-input": "required name=search_term_string"
-    }
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://gozcu.tech/blog?search={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 
   // Service structured data
   const serviceData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Software Development",
-    "provider": {
+    serviceType: "Software Development",
+    provider: {
       "@type": "Organization",
-      "name": siteName
+      name: siteName,
     },
-    "areaServed": {
+    areaServed: {
       "@type": "Country",
-      "name": "Turkey"
+      name: "Turkey",
     },
-    "hasOfferCatalog": {
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "Yazılım Hizmetleri",
-      "itemListElement": [
+      name: "Yazılım Hizmetleri",
+      itemListElement: [
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Web Tasarım ve Programlama"
-          }
+            name: "Web Tasarım ve Programlama",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "ERP Yazılım Geliştirme"
-          }
+            name: "ERP Yazılım Geliştirme",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Bulut Sunucu Hizmetleri"
-          }
+            name: "Bulut Sunucu Hizmetleri",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Özel Yazılım Geliştirme"
-          }
-        }
-      ]
-    }
+            name: "Özel Yazılım Geliştirme",
+          },
+        },
+      ],
+    },
   };
 
   // LocalBusiness structured data for local SEO
   const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Gözcü Yazılım Teknoloji",
-    "alternateName": siteName,
-    "image": image,
-    "url": url,
-    "telephone": contactPhone.replace(/\s/g, "-"),
-    "email": contactEmail,
-    "address": {
+    name: "Gözcü Yazılım Teknoloji",
+    alternateName: siteName,
+    image: image,
+    url: url,
+    telephone: contactPhone.replace(/\s/g, "-"),
+    email: contactEmail,
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": contactAddress.includes("İstanbul") ? "İstanbul" : contactAddress,
-      "addressRegion": "İstanbul",
-      "addressCountry": "TR",
-      "streetAddress": contactAddress
+      addressLocality: contactAddress.includes("İstanbul")
+        ? "İstanbul"
+        : contactAddress,
+      addressRegion: "İstanbul",
+      addressCountry: "TR",
+      streetAddress: contactAddress,
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": "41.0082",
-      "longitude": "28.9784"
+      latitude: "41.0082",
+      longitude: "28.9784",
     },
-    "openingHoursSpecification": {
+    openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
     },
-    "priceRange": "$$",
-    "serviceArea": {
+    priceRange: "$$",
+    serviceArea: {
       "@type": "Country",
-      "name": "Turkey"
+      name: "Turkey",
     },
-    "hasOfferCatalog": {
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "Yazılım Hizmetleri",
-      "itemListElement": [
+      name: "Yazılım Hizmetleri",
+      itemListElement: [
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Web Tasarım ve Programlama"
-          }
+            name: "Web Tasarım ve Programlama",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "ERP Yazılım Geliştirme"
-          }
+            name: "ERP Yazılım Geliştirme",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Bulut Sunucu Hizmetleri"
-          }
+            name: "Bulut Sunucu Hizmetleri",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Özel Yazılım Geliştirme"
-          }
-        }
-      ]
+            name: "Özel Yazılım Geliştirme",
+          },
+        },
+      ],
     },
-    "sameAs": [
-      githubUrl,
-      linkedinUrl
-    ]
+    sameAs: [githubUrl, linkedinUrl],
   };
-  
+
   // JSON-LD structured data for articles
   let structuredData = organizationData;
 
@@ -233,35 +329,35 @@ const SEO = ({
     structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": title,
-      "description": description,
-      "image": {
+      headline: title,
+      description: description,
+      image: {
         "@type": "ImageObject",
-        "url": image,
-        "width": 1200,
-        "height": 630
+        url: image,
+        width: 1200,
+        height: 630,
       },
-      "datePublished": publishedTime || new Date().toISOString(),
-      "dateModified": modifiedTime || publishedTime || new Date().toISOString(),
-      "author": {
+      datePublished: publishedTime || new Date().toISOString(),
+      dateModified: modifiedTime || publishedTime || new Date().toISOString(),
+      author: {
         "@type": "Organization",
-        "name": author,
-        "url": "https://gozcu.tech"
+        name: author,
+        url: "https://gozcu.tech",
       },
-      "publisher": {
+      publisher: {
         "@type": "Organization",
-        "name": siteName,
-        "logo": {
+        name: siteName,
+        logo: {
           "@type": "ImageObject",
-          "url": image,
-          "width": 512,
-          "height": 512
-        }
+          url: image,
+          width: 512,
+          height: 512,
+        },
       },
-      "mainEntityOfPage": {
+      mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": url
-      }
+        "@id": canonicalUrl,
+      },
     };
     if (section) {
       structuredData.articleSection = section;
@@ -284,19 +380,23 @@ const SEO = ({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content="Gözcu Yazılım" />
       <meta property="og:locale" content="tr_TR" />
-      
+
       {/* Article specific Open Graph */}
       {type === "article" && (
         <>
           <meta property="article:author" content={author} />
-          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+          {publishedTime && (
+            <meta property="article:published_time" content={publishedTime} />
+          )}
+          {modifiedTime && (
+            <meta property="article:modified_time" content={modifiedTime} />
+          )}
           {section && <meta property="article:section" content={section} />}
           {tags.map((tag, index) => (
             <meta key={index} property="article:tag" content={tag} />
@@ -306,7 +406,7 @@ const SEO = ({
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
+      <meta property="twitter:url" content={canonicalUrl} />
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
@@ -363,16 +463,18 @@ const SEO = ({
               "@type": "ListItem",
               position: index + 1,
               name: item.name,
-              item: item.url
-            }))
+              item: item.url,
+            })),
           })}
         </script>
       )}
 
-      {/* Language Alternatives (hreflang) */}
-      <link rel="alternate" hreflang="tr" href={url} />
-      <link rel="alternate" hreflang="en" href={`${url}?lang=en`} />
-      <link rel="alternate" hreflang="x-default" href={url} />
+      {/* Language Alternatives (hreflang) - Tüm diller için */}
+      {hreflangUrls.map(({ code, url: hreflangUrl }) => (
+        <link key={code} rel="alternate" hreflang={code} href={hreflangUrl} />
+      ))}
+      {/* Self-referencing hreflang - Mevcut sayfa için */}
+      <link rel="alternate" hreflang="x-default" href={baseUrl} />
 
       {/* Additional SEO Meta Tags */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -385,26 +487,38 @@ const SEO = ({
       <meta name="geo.placename" content="İstanbul" />
       <meta name="geo.position" content="41.0082;28.9784" />
       <meta name="ICBM" content="41.0082, 28.9784" />
-      
+
       {/* Mobile specific */}
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      />
+
       {/* Security */}
       <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
       <meta httpEquiv="X-Frame-Options" content="DENY" />
       <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-      
+
       {/* Performance hints */}
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="dns-prefetch"
+        href="https://lvfvugeqesuaauxizsyz.supabase.co"
+      />
+      <link
+        rel="preconnect"
+        href="https://lvfvugeqesuaauxizsyz.supabase.co"
+        crossOrigin="anonymous"
+      />
     </Helmet>
   );
 };
 
 export default SEO;
-
-
-
-

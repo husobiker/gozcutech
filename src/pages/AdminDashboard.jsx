@@ -227,6 +227,9 @@ const AdminDashboard = () => {
             src="/logo.png"
             alt="Gözcu Yazılım Logo"
             className="h-16 w-auto object-contain"
+            width="216"
+            height="84"
+            loading="eager"
           />
         </div>
         <div className="text-sm text-slate-600">Hoş geldin,</div>

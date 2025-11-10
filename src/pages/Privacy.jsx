@@ -126,6 +126,9 @@ const Privacy = () => {
                 src="/logo.png"
                 alt="Gözcu Yazılım Logo"
                 className="h-10 w-auto object-contain"
+                width="216"
+                height="84"
+                loading="eager"
               />
               <h1 className="text-xl font-semibold text-slate-900">
                 Gizlilik Politikası
@@ -364,6 +367,9 @@ const Privacy = () => {
                 src="/logo.png"
                 alt="Gözcu Yazılım Logo"
                 className="h-8 w-auto object-contain"
+                width="216"
+                height="84"
+                loading="lazy"
               />
               <div>
                 <div className="font-semibold text-slate-900 dark:text-white">

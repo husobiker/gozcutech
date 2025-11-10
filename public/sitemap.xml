@@ -20,45 +20,9 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Hakkımızda Bölümü -->
-  <url>
-    <loc>https://gozcu.tech/#about</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Hizmetlerimiz Bölümü -->
-  <url>
-    <loc>https://gozcu.tech/#solutions</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Planlar Bölümü -->
-  <url>
-    <loc>https://gozcu.tech/#plans</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Referanslar Bölümü -->
-  <url>
-    <loc>https://gozcu.tech/#references</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- İletişim Bölümü -->
-  <url>
-    <loc>https://gozcu.tech/#contact</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- NOT: Hash (#) ile başlayan URL'ler tek sayfa uygulaması içindeki anchor linklerdir.
+       Google bunları ayrı sayfalar olarak görmemeli, bu yüzden sitemap'ten çıkarıldı.
+       Ana sayfa (/) zaten tüm içeriği içeriyor. -->
   
   <!-- Gizlilik Politikası -->
   <url>

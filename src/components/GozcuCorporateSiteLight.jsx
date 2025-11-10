@@ -353,88 +353,104 @@ const Header = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-1">
-          <img
-            src="/logo.png"
-            alt="Gözcu Yazılım Logo"
-            className="h-12 w-auto object-contain dark:brightness-0 dark:invert transition-all duration-300"
-          />
-          <div className="h-10 flex items-center ml-1">
-            <TypewriterAnimation />
+      <div className="mx-auto max-w-7xl px-6 py-3 md:py-4">
+        {/* Mobilde: Üst satır - Logo/Typewriter ve Butonlar yan yana */}
+        {/* Desktop'ta: Tek satır - Logo/Typewriter, Nav, Butonlar */}
+        <div className="flex flex-row items-start md:items-center justify-between gap-3 md:gap-0">
+          {/* Logo ve Typewriter - Mobilde alt alta, desktop'ta yan yana */}
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-1 flex-1 md:flex-initial">
+            <img
+              src="/logo.png"
+              alt="Gözcu Yazılım Logo"
+              className="h-10 md:h-12 w-auto object-contain dark:brightness-0 dark:invert transition-all duration-300"
+              width="216"
+              height="84"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <div className="h-8 md:h-10 flex items-center md:ml-1 mt-0 md:mt-0">
+              <TypewriterAnimation />
+            </div>
           </div>
-        </div>
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          {nav.map((n, index) => (
+          
+          {/* Desktop Navigation - Ortada */}
+          <nav className="hidden md:flex items-center gap-6 text-sm flex-1 justify-center">
+            {nav.map((n, index) => (
+              <motion.button
+                key={n.id}
+                onClick={(e) =>
+                  n.href ? (window.location.href = n.href) : scrollTo(n.id, e)
+                }
+                className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors cursor-pointer pointer-events-auto"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.2 },
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {n.label}
+              </motion.button>
+            ))}
+          </nav>
+          
+          {/* Sağdaki butonlar - Mobilde sağ üstte, desktop'ta sağda */}
+          <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+            {/* Language Switcher */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <LanguageSwitcher />
+            </motion.div>
+
+            {/* Dark Mode Toggle */}
             <motion.button
-              key={n.id}
-              onClick={(e) =>
-                n.href ? (window.location.href = n.href) : scrollTo(n.id, e)
-              }
-              className="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors cursor-pointer pointer-events-auto"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={toggleDarkMode}
+              className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.2 },
               }}
               whileTap={{ scale: 0.95 }}
             >
-              {n.label}
+              <motion.div
+                initial={false}
+                animate={{ rotate: isDarkMode ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isDarkMode ? (
+                  <Sun className="size-5" />
+                ) : (
+                  <Moon className="size-5" />
+                )}
+              </motion.div>
             </motion.button>
-          ))}
-        </nav>
-        <div className="flex items-center gap-3">
-          {/* Language Switcher */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <LanguageSwitcher />
-          </motion.div>
 
-          {/* Dark Mode Toggle */}
-          <motion.button
-            onClick={toggleDarkMode}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.2 },
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.div
-              initial={false}
-              animate={{ rotate: isDarkMode ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
+            {/* Teklif Al Butonu - Mobilde küçük, desktop'ta tam */}
+            <motion.button
+              onClick={(e) => scrollTo("contact", e)}
+              className="inline-flex items-center gap-1 md:gap-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-2 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-semibold hover:opacity-90 dark:hover:bg-slate-100 cursor-pointer pointer-events-auto transition-colors"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+              }}
+              whileTap={{ scale: 0.95 }}
             >
-              {isDarkMode ? (
-                <Sun className="size-5" />
-              ) : (
-                <Moon className="size-5" />
-              )}
-            </motion.div>
-          </motion.button>
-
-          <motion.button
-            onClick={(e) => scrollTo("contact", e)}
-            className="inline-flex items-center gap-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 text-sm font-semibold hover:opacity-90 dark:hover:bg-slate-100 cursor-pointer pointer-events-auto transition-colors"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.2 },
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {t("header.cta")} <ArrowRight className="size-4" />
-          </motion.button>
+              <span className="hidden md:inline">{t("header.cta")}</span>
+              <span className="md:hidden">Teklif</span>
+              <ArrowRight className="size-3 md:size-4" />
+            </motion.button>
+          </div>
         </div>
       </div>
     </header>
@@ -1185,7 +1201,21 @@ const About = () => {
         </motion.div>
         <motion.div style={{ y: -yAbout * 0.3, opacity: opacityAbout }}>
           <div className="relative rounded-3xl border border-slate-200 bg-white p-1 shadow-md overflow-hidden">
-            <div className="aspect-[4/3] w-full rounded-2xl bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center" />
+            {/* Optimized Unsplash image - lazy load with placeholder */}
+            <div className="aspect-[4/3] w-full rounded-2xl bg-slate-200 dark:bg-slate-700 bg-cover bg-center relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop"
+                alt="Technology workspace"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="600"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                }}
+              />
+            </div>
             <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-3">
               <div className="rounded-xl bg-white/90 border border-slate-200 p-3 text-xs text-slate-800">
                 {t("plans.cards.web.title")}{" "}
@@ -1848,6 +1878,9 @@ const Plans = ({ plans = [] }) => {
                   src="/src/images/linux.png"
                   alt="Linux"
                   className="w-4 h-4 object-contain"
+                  width="16"
+                  height="16"
+                  loading="lazy"
                 />
                 Linux
               </motion.button>
@@ -1969,6 +2002,10 @@ const References = ({ projects = [] }) => {
                           src={project.logo_data}
                           alt={`${project.company_name} logo`}
                           className="w-full h-full object-contain"
+                          width="48"
+                          height="48"
+                          loading="lazy"
+                          decoding="async"
                           onError={(e) => {
                             e.target.style.display = "none";
                             e.target.nextSibling.style.display = "block";
@@ -2057,6 +2094,10 @@ const References = ({ projects = [] }) => {
                           selectedProject.company
                         } logo`}
                         className="w-full h-full object-contain"
+                        width="64"
+                        height="64"
+                        loading="lazy"
+                        decoding="async"
                         onError={(e) => {
                           e.target.style.display = "none";
                           e.target.nextSibling.style.display = "block";
@@ -2714,6 +2755,9 @@ const Footer = ({ siteData }) => {
                 src="/logo.png"
                 alt="Gözcu Yazılım Logo"
                 className="h-12 w-auto object-contain dark:brightness-0 dark:invert transition-all duration-300"
+                width="216"
+                height="84"
+                loading="lazy"
               />
               <div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -3037,6 +3081,10 @@ const BlogSection = ({
                     src={post.featured_image}
                     alt={post.title}
                     className="w-full h-full object-cover"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.style.display = "none";
                       e.target.nextSibling.style.display = "flex";
@@ -3200,34 +3248,7 @@ export default function GozcuCorporateSiteLight() {
         });
       }
 
-      // Backend'den site ayarlarını yükle
-      try {
-        const settingsResponse = await fetch("/api/settings");
-        if (settingsResponse.ok) {
-          const apiSettings = await settingsResponse.json();
-          const mergedSettings = {
-            siteName: apiSettings.general?.siteName || siteData.siteName,
-            siteFooter: apiSettings.general?.siteFooter || siteData.siteFooter || "© 2024 Gözcu Yazılım. Tüm hakları saklıdır.",
-            siteDescription:
-              apiSettings.general?.siteDescription || siteData.siteDescription,
-            email: apiSettings.contact?.email || siteData.email,
-            phone: apiSettings.contact?.phone || siteData.phone,
-            address: apiSettings.contact?.address || siteData.address,
-            github: apiSettings.social?.github || siteData.github,
-            linkedin: apiSettings.social?.linkedin || siteData.linkedin,
-            instagram: apiSettings.social?.instagram || siteData.instagram,
-          };
-
-          setSiteData(mergedSettings);
-          localStorage.setItem(
-            "admin_settings",
-            JSON.stringify(mergedSettings)
-          );
-        }
-      } catch (settingsError) {
-        console.log("Backend ayarları yüklenemedi, localStorage kullanılıyor");
-      }
-
+      // Önce localStorage'dan yükle (hızlı başlangıç)
       const savedBlogs = localStorage.getItem("admin_blogs");
       if (savedBlogs) {
         const blogs = JSON.parse(savedBlogs);
@@ -3244,71 +3265,71 @@ export default function GozcuCorporateSiteLight() {
         setProjects(projectsToShow);
       }
 
-      // Supabase'den blog yazılarını yükle (arka planda)
-      try {
-        const blogResult = await blogAPI.getAll({
-          status: "published",
-          limit: 3,
-          featured: true,
-        });
+      // Tüm API çağrılarını PARALEL yap (performans optimizasyonu)
+      const [settingsResult, blogResult, projectsResult, plansResult] = await Promise.allSettled([
+        // Settings API
+        fetch("/api/settings").then(res => res.ok ? res.json() : null).catch(() => null),
+        // Blog API (Supabase)
+        blogAPI.getAll({ status: "published", limit: 3, featured: true }).catch(() => ({ success: false })),
+        // Projects API (Supabase)
+        projectsAPI.getAll({ featured: true, limit: 6, status: "active" }).catch(() => ({ success: false })),
+        // Plans API
+        fetch("/api/plans").then(res => res.ok ? res.json() : null).catch(() => null)
+      ]);
 
-        if (blogResult.success) {
-          setBlogPosts(blogResult.data);
-          localStorage.setItem("admin_blogs", JSON.stringify(blogResult.data));
-        }
-      } catch (blogError) {
-        console.log(
-          "Blog yazıları Supabase'den yüklenemedi, localStorage kullanılıyor"
-        );
+      // Settings sonucunu işle
+      if (settingsResult.status === 'fulfilled' && settingsResult.value) {
+        const apiSettings = settingsResult.value;
+        const mergedSettings = {
+          siteName: apiSettings.general?.siteName || siteData.siteName,
+          siteFooter: apiSettings.general?.siteFooter || siteData.siteFooter || "© 2024 Gözcu Yazılım. Tüm hakları saklıdır.",
+          siteDescription: apiSettings.general?.siteDescription || siteData.siteDescription,
+          email: apiSettings.contact?.email || siteData.email,
+          phone: apiSettings.contact?.phone || siteData.phone,
+          address: apiSettings.contact?.address || siteData.address,
+          github: apiSettings.social?.github || siteData.github,
+          linkedin: apiSettings.social?.linkedin || siteData.linkedin,
+          instagram: apiSettings.social?.instagram || siteData.instagram,
+        };
+        setSiteData(mergedSettings);
+        localStorage.setItem("admin_settings", JSON.stringify(mergedSettings));
       }
 
-      // Supabase'den projeleri yükle (arka planda)
-      try {
-        const projectsResult = await projectsAPI.getAll({
-          featured: true,
-          limit: 6,
-          status: "active",
-        });
-
-        if (projectsResult.success) {
-          const formattedProjects = projectsResult.data.map((project) => ({
-            ...project,
-            company_name: project.company_name || project.company,
-            project_title: project.project_title || project.project_name,
-          }));
-          setProjects(formattedProjects);
-          localStorage.setItem(
-            "admin_projects",
-            JSON.stringify(formattedProjects)
-          );
-        }
-      } catch (projectsError) {
-        console.log(
-          "Projeler Supabase'den yüklenemedi, localStorage kullanılıyor"
-        );
+      // Blog sonucunu işle
+      if (blogResult.status === 'fulfilled' && blogResult.value?.success) {
+        setBlogPosts(blogResult.value.data);
+        localStorage.setItem("admin_blogs", JSON.stringify(blogResult.value.data));
       }
 
-      // Backend'den planları yükle
-      try {
-        const plansResponse = await fetch("/api/plans");
-        if (plansResponse.ok) {
-          const apiPlans = await plansResponse.json();
-          const plansToShow = apiPlans.map((plan) => ({
-            id: plan.id,
-            name: plan.name,
-            price: plan.price,
-            tagline: plan.description,
-            features: plan.features || [],
-            cta: plan.button_text || "Teklif Al",
-            plan_type: plan.plan_type || "web",
-            server_type: plan.server_type || "linux",
-            featured: plan.popular || false,
-          }));
-          setPlans(plansToShow);
-          localStorage.setItem("admin_plans", JSON.stringify(plansToShow));
-        }
-      } catch (plansError) {
-        console.log("Backend planları yüklenemedi, localStorage kullanılıyor");
+      // Projects sonucunu işle
+      if (projectsResult.status === 'fulfilled' && projectsResult.value?.success) {
+        const formattedProjects = projectsResult.value.data.map((project) => ({
+          ...project,
+          company_name: project.company_name || project.company,
+          project_title: project.project_title || project.project_name,
+        }));
+        setProjects(formattedProjects);
+        localStorage.setItem("admin_projects", JSON.stringify(formattedProjects));
+      }
+
+      // Plans sonucunu işle
+      if (plansResult.status === 'fulfilled' && plansResult.value) {
+        const apiPlans = plansResult.value;
+        const plansToShow = apiPlans.map((plan) => ({
+          id: plan.id,
+          name: plan.name,
+          price: plan.price,
+          tagline: plan.description,
+          features: plan.features || [],
+          cta: plan.button_text || "Teklif Al",
+          plan_type: plan.plan_type || "web",
+          server_type: plan.server_type || "linux",
+          featured: plan.popular || false,
+        }));
+        setPlans(plansToShow);
+        localStorage.setItem("admin_plans", JSON.stringify(plansToShow));
+      } else {
+        // Fallback: localStorage'dan planları yükle
         const savedPlans = localStorage.getItem("admin_plans");
         if (savedPlans) {
           const plansToShow = JSON.parse(savedPlans).map((plan) => ({

@@ -224,6 +224,9 @@ const Blog = () => {
                 src="/logo.png"
                 alt="Gözcu Yazılım Logo"
                 className="h-10 w-auto object-contain"
+                width="216"
+                height="84"
+                loading="eager"
               />
             </div>
             <nav className="flex items-center gap-6 text-sm">
@@ -368,6 +371,10 @@ const Blog = () => {
                         src={post.featured_image}
                         alt={post.title}
                         className="w-full h-full object-cover"
+                        width="400"
+                        height="225"
+                        loading="lazy"
+                        decoding="async"
                         onError={(e) => {
                           e.target.style.display = "none";
                           e.target.nextSibling.style.display = "flex";

@@ -257,6 +257,9 @@ const BlogDetail = () => {
                 src="/logo.png"
                 alt="Gözcu Yazılım Logo"
                 className="h-10 w-auto object-contain"
+                width="216"
+                height="84"
+                loading="eager"
               />
             </div>
             <nav className="flex items-center gap-6 text-sm">
@@ -385,8 +388,8 @@ const BlogDetail = () => {
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
-                  width={1200}
-                  height={630}
+                  width="1200"
+                  height="630"
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}
@@ -527,6 +530,9 @@ const BlogDetail = () => {
                 src="/logo.png"
                 alt="Gözcu Yazılım Logo"
                 className="h-8 w-auto object-contain"
+                width="216"
+                height="84"
+                loading="lazy"
               />
               <div>
                 <div className="font-semibold text-slate-900">

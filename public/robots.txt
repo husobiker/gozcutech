@@ -15,8 +15,5 @@ Disallow: /api/
 # Allow important pages
 Allow: /
 Allow: /blog
-Allow: /#about
-Allow: /#solutions
-Allow: /#plans
-Allow: /#references
-Allow: /#contact
+# NOT: Hash (#) ile başlayan URL'ler tek sayfa uygulaması içindeki anchor linklerdir.
+# Google bunları ayrı sayfalar olarak görmemeli, bu yüzden robots.txt'den çıkarıldı.
