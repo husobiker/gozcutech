@@ -15,6 +15,9 @@ const JWT_SECRET =
   process.env.JWT_SECRET ||
   "gozcu-super-secure-secret-key-2024-change-in-production";
 
+// Trust proxy (Nginx için gerekli)
+app.set('trust proxy', true);
+
 // Middleware
 app.use(helmet());
 app.use(
