@@ -15,8 +15,8 @@ const JWT_SECRET =
   process.env.JWT_SECRET ||
   "gozcu-super-secure-secret-key-2024-change-in-production";
 
-// Trust proxy (Nginx için gerekli)
-app.set('trust proxy', true);
+// Trust proxy (Nginx için gerekli - sadece bir proxy katmanı)
+app.set("trust proxy", 1);
 
 // Middleware
 app.use(helmet());
@@ -44,11 +44,26 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 // Rate limiting
+// Not: express-rate-limit trust proxy validation hatası veriyor
+// Geçici olarak devre dışı bırakıldı - Nginx seviyesinde rate limiting kullanılabilir
+// TODO: express-rate-limit güncellemesi veya alternatif çözüm
+/*
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 1000, // limit each IP to 1000 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => {
+    return (
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
+      req.ip ||
+      req.connection.remoteAddress
+    );
+  },
 });
 app.use("/api/", limiter);
+*/
 
 // File upload configuration
 const storage = multer.diskStorage({

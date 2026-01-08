@@ -49,8 +49,6 @@ export default defineConfig({
             return 'vendor';
           }
         },
-        // Chunk size uyarılarını artır
-        chunkSizeWarningLimit: 1000,
         // CSS dosyalarını optimize et
         assetFileNames: (assetInfo) => {
           if (assetInfo.name.endsWith('.css')) {
