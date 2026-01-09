@@ -1,0 +1,19 @@
+# Gözcu Yazılım - Environment Variables Template
+# Bu dosyayı .env olarak kopyalayın: cp env-template.txt .env
+# Sonra değerleri güncelleyin: nano .env
+
+# Supabase Configuration
+VITE_SUPABASE_URL=https://lvfvugeqesuaauxizsyz.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2ZnZ1Z2VxZXN1YWF1eGl6c3l6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MjE1MzIsImV4cCI6MjA3NTM5NzUzMn0.g2VjTaGUv1Hn8jyn_tCGHGHxrfnEHzUKpQUMzOqlFpQ
+VITE_SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2ZnZ1Z2VxZXN1YWF1eGl6c3l6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1OTgyMTUzMiwiZXhwIjoyMDc1Mzk3NTMyfQ.McsVcykgVEah-YSfRhzs9lXFLqZmaaJwmTGk4_D4H6M
+
+# Node Environment
+NODE_ENV=production
+
+# Backend Port (PM2 için)
+PORT=3012
+
+# JWT Secret (Production'da değiştir!)
+JWT_SECRET=gozcu-super-secure-secret-key-2024-change-in-production
+
+
